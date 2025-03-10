@@ -12,12 +12,12 @@ on:
 
 jobs:
     on-push: #job namn
-        runs-on: ubuntu latest
+        runs-on: ubuntu-latest
         steps:
             - name: "Running on main branch" #step 1
               run: echo "Running on main branch"
     on-pull-request: #job namn
-        runs-on: ubuntu latest
+        runs-on: ubuntu-latest
         steps:
             - name: "Running on pull request" #step 1
               run: echo "Running on pull request"
