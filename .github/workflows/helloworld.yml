@@ -13,3 +13,6 @@ jobs:
     steps:
       - name: "Print Hello World"
         run: echo "Hello World from GitHub Actions"
+      
+      - name: "Print Current Directory"
+        run: pwd
