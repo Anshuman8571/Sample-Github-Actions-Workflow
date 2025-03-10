@@ -5,10 +5,22 @@ on:
         branches:
             - Main
             - test
+    pull_request: #Event
+        branches:
+            - Main
+            - test
+    workflow_dispatch: 
 
 jobs:
-    on-push: #job namn
-        runs-on: ubuntu latest
+    on-push: #job name
+        if: GitHub.event_name == 'push' 
+        runs-on: ubuntu-latest
         steps:
             - name: "Running on main branch" #step 1
               run: echo "Running on main branch"
+    on-pull-request: #job name
+        if: github.event_name == 'pull_request'
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Running on pull request" #step 1
+              run: echo "Running on pull request"
