@@ -5,6 +5,8 @@ on:
         branches:
             - Main
             - test
+    schedule:
+        - cron: "0 10 * * 2,4"
     pull_request: #Event
         branches:
             - Main
@@ -13,7 +15,7 @@ on:
 
 jobs:
     on-push: #job name
-        if: GitHub.event_name == 'push' 
+        if: github.event_name == 'push' 
         runs-on: ubuntu-latest
         steps:
             - name: "Running on main branch" #step 1
@@ -38,3 +40,10 @@ jobs:
         steps:
             - name: "Running on pull request closed" #step 4
               run: echo "Running on pull request closed"
+    
+    on-schedule:
+        if: github.event_name == 'schedule'
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Running on schedule" #step 5
+              run: echo "Running on schedule"
