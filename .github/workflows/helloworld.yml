@@ -16,3 +16,6 @@ jobs:
       
       - name: "Print Current Directory"
         run: pwd
+      
+      - name: "Print date"
+        run: date
