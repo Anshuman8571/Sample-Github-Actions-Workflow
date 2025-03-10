@@ -13,7 +13,7 @@ on:
 
 jobs:
     on-push: #job name
-        if: GitHub.event_name == 'push' 
+        if: github.event_name == 'push' 
         runs-on: ubuntu-latest
         steps:
             - name: "Running on main branch" #step 1
@@ -24,3 +24,20 @@ jobs:
         steps:
             - name: "Running on pull request" #step 1
               run: echo "Running on pull request"
+
+    on-pull-request-closed:
+        if: github.event_name == 'pull_request' && github.event.action == 'closed'
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Running on pull request closed" #step 1
+              run: echo "Running on pull request closed"
+
+
+              
+    on-workflow-dispatch: #job 3
+        if: github.event_name == 'workflow_dispatch'
+        runs-on: ubuntu-latest
+        steps: 
+            - name: "Running on workflow dispatch" #step 1
+              run: echo "Running on workflow dispatch"
+
